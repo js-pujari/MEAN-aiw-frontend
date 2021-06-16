@@ -9,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: './login/login.module#LoginModule'
+    loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
   },
   {
     path: '',
@@ -17,31 +17,31 @@ const routes: Routes = [
     children: [
       {
         path: 'dashboard',
-        loadChildren: './dashboard/dashboard.module#DashboardModule',
+        loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
         canActivate: [AuthGuard]
       },
       {
         path: 'profile',
-        loadChildren: './profile/profile.module#ProfileModule'
+        loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule)
       },
       {
         path: 'about',
-        loadChildren: './about/about.module#AboutModule'
+        loadChildren: () => import('./about/about.module').then(m => m.AboutModule)
       },
       {
         path: 'payment',
-        loadChildren: './payment/payment.module#PaymentModule'
+        loadChildren: () => import('./payment/payment.module').then(m => m.PaymentModule)
       },
       {
         path: 'feedback',
-        loadChildren: './feedback/feedback.module#FeedbackModule'
+        loadChildren: () => import('./feedback/feedback.module').then(m => m.FeedbackModule)
       }
     ]
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

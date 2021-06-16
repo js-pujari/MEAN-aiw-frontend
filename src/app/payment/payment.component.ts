@@ -13,10 +13,10 @@ export interface Vehicle {
 })
 export class PaymentComponent implements OnInit {
   vehicles: Vehicle[] = [
-    { name: "JCB", price: 750 },
-    { name: "Hitachi", price: 1200 },
-    { name: "Tractor", price: 450 },
-    { name: "Water tanker", price: 1000 }
+    { name: "JCB", price: 1000 },
+    { name: "Hitachi", price: 2000 },
+    { name: "Tractor", price: 750 },
+    { name: "Water tanker", price: 1200 }
   ];
 
   paymentForm: FormGroup = this.fb.group({
@@ -25,9 +25,9 @@ export class PaymentComponent implements OnInit {
     totalAmount: [{ value: 0, disabled: true }]
   });
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   calAmount(): void {
     const form = this.paymentForm.value;

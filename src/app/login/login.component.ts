@@ -10,7 +10,7 @@ import { LoaderComponent } from '../shared/component/loader/loader.component';
 import { DialogComponent } from '../shared/component/dialog/dialog.component';
 import {
   GoogleLoginProvider,
-  AuthService,
+  SocialAuthService,
   FacebookLoginProvider,
   SocialUser
 } from 'angularx-social-login';
@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
     private readonly dataservice: DataService,
     private readonly dialog: MatDialog,
     private readonly loaderService: LoaderService,
-    private authService: AuthService
+    private authService: SocialAuthService
   ) { }
 
   ngOnInit(): void {

@@ -32,7 +32,7 @@ export class BookVehicleComponent implements OnInit {
     date: ["", Validators.required],
     description: [""],
     decl: ["", Validators.required],
-    tankerType: ["1000"]
+    tankerType: ["1200"]
   });
 
   minDate: Date = new Date();
@@ -43,41 +43,41 @@ export class BookVehicleComponent implements OnInit {
     public dialog: MatDialog,
     private readonly dataService: DataService,
     private readonly loaderService: LoaderService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.vehicleForm.controls["price"].disable();
     this.loaderService.show();
-      this.dataService.fetchProfile().subscribe(
-        (response: RegisterPayload) => {
-          this.loaderService.hide();
-          if (response) {
-            this.profile = response.profile[0];
-            this.vehicleForm.patchValue({
-              firstName: this.profile.firstName ? this.profile.firstName : '',
-              lastName: this.profile.lastName ? this.profile.lastName : '',
-              mobile: this.profile.mobile ? this.profile.mobile : null,
-              email: this.profile.email ? this.profile.email : '',
-              address: this.profile.address ? this.profile.address : ''
-            })
-          }
-        },
-        () => {
-          this.loaderService.hide();
+    this.dataService.fetchProfile().subscribe(
+      (response: RegisterPayload) => {
+        this.loaderService.hide();
+        if (response) {
+          this.profile = response.profile[0];
+          this.vehicleForm.patchValue({
+            firstName: this.profile.firstName ? this.profile.firstName : '',
+            lastName: this.profile.lastName ? this.profile.lastName : '',
+            mobile: this.profile.mobile ? this.profile.mobile : null,
+            email: this.profile.email ? this.profile.email : '',
+            address: this.profile.address ? this.profile.address : ''
+          })
         }
-      );
+      },
+      () => {
+        this.loaderService.hide();
+      }
+    );
   }
 
   onVehicleSelection(selection: MatSelectChange): void {
     switch (selection.value) {
       case "JCB":
-        this.vehicleForm.controls["price"].setValue("750");
+        this.vehicleForm.controls["price"].setValue("1000");
         break;
       case "Tractor":
-        this.vehicleForm.controls["price"].setValue("450");
+        this.vehicleForm.controls["price"].setValue("750");
         break;
       case "Hitachi":
-        this.vehicleForm.controls["price"].setValue("1200");
+        this.vehicleForm.controls["price"].setValue("2000");
         break;
       case "Water tanker":
         this.vehicleForm.controls["price"].setValue(
@@ -94,9 +94,9 @@ export class BookVehicleComponent implements OnInit {
 
   onBook(): void {
     let userData: string;
-        this.loaderService.userState.subscribe(data => {
-          userData = data;
-        });
+    this.loaderService.userState.subscribe(data => {
+      userData = data;
+    });
     const orderInput: Order = <Order>{
       username: userData,
       user: <User>{
