@@ -7,25 +7,26 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatInputModule } from "@angular/material/input";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatToolbarModule } from "@angular/material/toolbar";
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { LayoutComponent } from "../layout/layout.component";
 import { DrawerComponent } from '../drawer/drawer.component';
-import {MatTabsModule} from '@angular/material/tabs';
-import {MatTooltipModule} from '@angular/material/tooltip';
-import {MatSelectModule} from '@angular/material/select';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { DataService } from './service/data.service';
-import {MatRadioModule} from '@angular/material/radio';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { DialogComponent } from './component/dialog/dialog.component';
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
 import { RegisterDialogComponent } from './component/register-dialog/register-dialog.component';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatSortModule} from '@angular/material/sort';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 import { LoaderComponent } from './component/loader/loader.component';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
-import {MatDividerModule} from '@angular/material/divider';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatDialogModule } from '@angular/material/dialog';
 
 const MATERIAL_MODULES: any = [
   MatCardModule,
@@ -45,7 +46,8 @@ const MATERIAL_MODULES: any = [
   MatPaginatorModule,
   MatSortModule,
   MatProgressBarModule,
-  MatDividerModule
+  MatDividerModule,
+  MatDialogModule
 ];
 
 const LAYOUT_MODULES: any = [FlexLayoutModule];
@@ -59,4 +61,4 @@ const FORMS_MODULES: any = [FormsModule, ReactiveFormsModule];
   entryComponents: [DialogComponent, RegisterDialogComponent],
   exports: [MATERIAL_MODULES, LAYOUT_MODULES, FORMS_MODULES, LayoutComponent, DrawerComponent]
 })
-export class SharedModule {}
+export class SharedModule { }
