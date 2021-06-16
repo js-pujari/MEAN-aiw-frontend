@@ -1,3 +1,4 @@
+import { LoaderService } from './shared/service/loader.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,4 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
+  constructor(private readonly loaderService: LoaderService) {
+    this.loaderService.setUser(localStorage.getItem('aiwUserData'));
+  }
+
 }

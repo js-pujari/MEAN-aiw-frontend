@@ -19,7 +19,8 @@ import { LoaderService } from './loader.service';
 })
 export class DataService {
   url: string = "../../../assets/data/profile.json";
-  baseUrl: string = "https://aiw-backend-pupu.herokuapp.com";
+  // baseUrl: string = "https://aiw-backend-pupu.herokuapp.com";
+  baseUrl: string = "http://localhost:3000";
   userData: string;
 
   constructor(private readonly http: HttpClient, private loaderService: LoaderService) {
@@ -64,11 +65,11 @@ export class DataService {
   fetchOrder(): Observable<Order[]> {
     return this.http
       .get<Order[]>(`${this.baseUrl}/order`,
-      {
-        params: {
-          username: this.userData ? this.userData : ''
-        }
-      })
+        {
+          params: {
+            username: this.userData ? this.userData : ''
+          }
+        })
       .pipe(response => response);
   }
 
@@ -86,11 +87,11 @@ export class DataService {
 
   downloadAvatar(): Observable<AvatarPayload> {
     return this.http.get<AvatarPayload>(`${this.baseUrl}/upload`,
-    {
-      params: {
-        username: this.userData ? this.userData : ''
+      {
+        params: {
+          username: this.userData ? this.userData : ''
+        }
       }
-    }
-      ).pipe(res => res);
+    ).pipe(res => res);
   }
 }

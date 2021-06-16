@@ -9,14 +9,11 @@ import { LoaderService } from './shared/service/loader.service';
 
 export class AuthGuard implements CanActivate {
 
-    constructor(private readonly router: Router, private loaderService: LoaderService){
+    constructor(private readonly router: Router, private loaderService: LoaderService) {
     }
 
     canActivate(): Observable<boolean> | Promise<boolean> | boolean {
-        let user: string;
-        this.loaderService.userState.subscribe(data => {
-            user = data;
-        });
+        const user = localStorage.getItem('aiwUserData');
         if (!user) {
             this.router.navigate(['login']);
             return false;
