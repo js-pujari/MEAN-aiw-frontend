@@ -21,8 +21,8 @@ export interface OrderTable {
   styleUrls: ["./vehicle-detail.component.scss"]
 })
 export class VehicleDetailComponent implements OnInit {
-  @ViewChild("paginator") paginator: MatPaginator;
-  @ViewChild("sort") sort: MatSort;
+  @ViewChild("paginator", { static: true }) paginator: MatPaginator;
+  @ViewChild("sort", { static: true }) sort: MatSort;
   displayedColumns: string[] = [
     "name",
     "mobile",
